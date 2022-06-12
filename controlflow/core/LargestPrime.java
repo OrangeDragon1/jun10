@@ -4,8 +4,8 @@ public class LargestPrime {
 
     public static void main(String[] args) {
         
-        // System.out.println(getLargestPrime(21));
-        getLargestPrime(0);
+        System.out.println(getLargestPrime(45));
+        // getLargestPrime(0);
         // int number = 11;
         // double count = 1.0;
         // count++;
@@ -16,22 +16,17 @@ public class LargestPrime {
         // System.out.println(resultNum);
     }
     
-    public static void getLargestPrime(int number) {
+    public static int getLargestPrime(int number) {
 
-        int primeNum = -1;
-        int count = 1;
-        int countPrime = 1;
-
-        if(number > 1) {
-            while(count < number) {
-                if(number % count == 0) {
-                    while(countPrime < count) {
-                        
-                    }
-                }
-                count++;
+        if (number < 2) {
+            return -1;
+        }
+        for (int i = 2; i < number; i++) {
+            if ((number % i) == 0) {
+                number /= i;
+                i--;
             }
         }
-        System.out.println(primeNum);
+        return number;
     }
 }
